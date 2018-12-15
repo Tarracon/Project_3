@@ -39,3 +39,13 @@ main:
 			addi $t3, $t3, 1 	#counter for letters increment by 1
 			addi $t2, $t2, 1	#counter for letters and spaces incremented by 1
 			move $s3, $t3
+			
+			StoreChars:
+				lb $a1, 0($a0)
+				addi $a0, $a0, 1
+				beq $a1, 10, storePowers
+				beq $a1, 0, storePowers
+				beq $a1, 32, SeenSpaceandChar
+				bne $a1, 32, SeeingChars
+				j StoreChars
+				
