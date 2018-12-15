@@ -9,3 +9,15 @@
 .text
 
 .globl main
+main:
+		#prompting the user to input
+		li $v0, 8
+		la $a0, userInput
+		li $a1, 50000
+		syscall
+		
+		li $t0, 0 #Boolean
+		li $t1, 0 #Boolean
+		
+		li $t7, 0 #handles my array
+		
