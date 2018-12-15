@@ -34,4 +34,8 @@ main:
 			beq $a1, 10, emptyInputB
 			beq $a1, 0, emptyInputB
 			beq $a1, 32, Loop
-			
+			addi $t0, $t0, 1	#Boolean for having seen a character is True
+			sb $a1, 0($t4)		#put $a1 (first valid char) in char storage
+			addi $t3, $t3, 1 	#counter for letters increment by 1
+			addi $t2, $t2, 1	#counter for letters and spaces incremented by 1
+			move $s3, $t3
