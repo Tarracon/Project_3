@@ -157,3 +157,12 @@ ChangeBase:
 			sw $v0, 0($sp)
 			
 			jr $ra
+invalidInputB:
+	bgt $t2, 4, longInputB
+	
+	la $a0, invalidInput
+	li $v0, 4
+	syscall 
+	
+	li $v0, 10
+	syscall
