@@ -48,4 +48,8 @@ main:
 				beq $a1, 32, SeenSpaceandChar
 				bne $a1, 32, SeeingChars
 				j StoreChars
+		SeenSpaceandChar:
+			li $t1, 1			#Boolean for having seen a space after a char is True
+			addi $t2, $t2, 1 	#incrementing counter for letters and spaces after letters
+			j StoreChars
 				
