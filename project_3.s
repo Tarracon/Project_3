@@ -52,4 +52,12 @@ main:
 			li $t1, 1			#Boolean for having seen a space after a char is True
 			addi $t2, $t2, 1 	#incrementing counter for letters and spaces after letters
 			j StoreChars
-				
+		SeeingChars:
+			addi $t2, $t2, 1			#counter for letters and spaces incremented by 1
+			addi $t3, $t3, 1 			#counter for letters increment by 1
+			addi $t4, $t4, 1			#incrementing address of valid chars array
+			beq $t1, 1, invalidInputB 	#if we see a character after seeing spaces and chars, ruled invalid
+			beq $t3, 5, longInputB 		#jump to say that the input is too long and exit
+			sb $a1, 0($t4)
+			move $s3, $t3
+			j StoreChars
