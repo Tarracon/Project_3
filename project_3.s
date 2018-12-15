@@ -117,4 +117,11 @@ ChangeBase:
 		lowerB:
 			addi $t0, $t0, -87 	#subtracts 87 from the ASCII value
 			j multiply
+		upperB:
+			addi $t0, $t0, -55 	#subtracts 48 from the ASCII value
+			j multiply
+		
+		numberB:
+			addi $t0, $t0, -48 	#subtracts 48 from the ASCII value
+			j multiply
 			
