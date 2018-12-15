@@ -86,4 +86,24 @@ call_subprog:
 	syscall
 		
 	jr $ra	
+.globl ChangeBase
+ChangeBase:
+		lw $a1, 0($sp) 		#power array
+		lw $a0, 4($sp)		#char array
+		lw $a3, 8($sp)		#length
+		addi $sp, $sp, 12
+		
+		addi $sp, $sp, -8
+		sw $ra, 0($sp)
+		sw $s7, 4($sp)
 	
+		beq $a3, 0, return_num
+		
+		lb $t0, 0($a0) 	#curr char
+		lw $t1, ($a1)	#curr power
+		
+		addi $a0, $a0, -1
+		addi $a1, $a1, 4
+		
+		addi $a3, $a3, -1
+		
