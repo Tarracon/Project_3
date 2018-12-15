@@ -125,3 +125,26 @@ ChangeBase:
 			addi $t0, $t0, -48 	#subtracts 48 from the ASCII value
 			j multiply
 			
+		multiply:
+			mul $s7, $t1, $t0 
+
+			addi $sp, $sp, -12
+			sw $a1, 0($sp) 		#power array
+			sw $a0, 4($sp)		#char array
+			sw $a3, 8($sp)		#length
+			
+			jal ChangeBase
+			
+			lw $v0, 0($sp)
+			addi $sp, $sp, 4
+			add $v0, $s7, $v0 
+			
+			lw $ra, 0($sp)
+			lw $s7, 4($sp)
+			addi $sp, $sp, 8
+
+			addi $sp, $sp, -4
+			sw $v0, 0($sp)
+						
+			jr $ra
+		
