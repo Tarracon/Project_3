@@ -114,3 +114,7 @@ ChangeBase:
 			bgt $t0, 57, invalidInputB 				#checks if character is between 48 and 57
 			bgt $t0, 47, numberB					#checks if character is before 0 in ASCII chart
 			j invalidInputB
+		lowerB:
+			addi $t0, $t0, -87 	#subtracts 87 from the ASCII value
+			j multiply
+			
