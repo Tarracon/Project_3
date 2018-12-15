@@ -61,3 +61,10 @@ main:
 			sb $a1, 0($t4)
 			move $s3, $t3
 			j StoreChars
+	storePowers:
+		beq $t3, 0, call_subprog
+		sw $s1,  powerStorage($t7)
+		mul $s1, $s1, $s0
+		addi $t3, $t3, -1
+		addi $t7, $t7, 4
+		j storePowers
