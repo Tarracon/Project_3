@@ -106,4 +106,11 @@ ChangeBase:
 		addi $a1, $a1, 4
 		
 		addi $a3, $a3, -1
-		
+		check_string:
+			bgt $t0, 121, invalidInputB	
+			bgt $t0, 96, lowerB						#checks if character is between 97 and 117
+			bgt $t0, 89, invalidInputB 				#checks if character is between 76 and 96
+			bgt $t0, 64, upperB 					#checks if character is between 58 and 64
+			bgt $t0, 57, invalidInputB 				#checks if character is between 48 and 57
+			bgt $t0, 47, numberB					#checks if character is before 0 in ASCII chart
+			j invalidInputB
