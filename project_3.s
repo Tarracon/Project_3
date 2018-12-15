@@ -68,3 +68,22 @@ main:
 		addi $t3, $t3, -1
 		addi $t7, $t7, 4
 		j storePowers
+call_subprog:
+	addi $sp, $sp, -12
+	sw $t5, 0($sp)		#power array
+	sw $t4, 4($sp)		#char array
+	sw $s3, 8($sp)		#length
+	
+	jal ChangeBase
+	
+	lw $a0, 0($sp)
+	addi $sp, $sp, 4
+		
+	li $v0, 1 #prints contents of a0
+	syscall
+	
+	li $v0,10 	#ends program
+	syscall
+		
+	jr $ra	
+	
