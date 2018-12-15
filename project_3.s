@@ -166,3 +166,11 @@ invalidInputB:
 	
 	li $v0, 10
 	syscall
+emptyInputB:
+	la $a0, emptyInput
+	li $v0, 4
+	syscall
+	
+	li $v0, 10
+	syscall
+		
