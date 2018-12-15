@@ -147,4 +147,13 @@ ChangeBase:
 			sw $v0, 0($sp)
 						
 			jr $ra
-		
+		return_num:
+			li $v0, 0
+			lw $ra, 0($sp)
+			lw $s7, 4($sp)
+			addi $sp, $sp, 8
+			
+			addi $sp, $sp, -4
+			sw $v0, 0($sp)
+			
+			jr $ra
