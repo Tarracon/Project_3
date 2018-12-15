@@ -28,4 +28,10 @@ main:
 		
 		la $t4, userInputStorage
 		la $t5, powerStorage
-		
+		Loop:
+			lb $a1, 0($a0)
+			addi $a0, $a0, 1
+			beq $a1, 10, emptyInputB
+			beq $a1, 0, emptyInputB
+			beq $a1, 32, Loop
+			
